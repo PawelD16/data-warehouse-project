@@ -14,21 +14,22 @@ DEFAULT_BIKE_CSV_PATHS = [
 
 
 def main(
-        taxi_csv_path: str, output_csv: str, bike_csv_paths: List[str]
+        taxi_csv_path: str, bike_csv_paths: List[str]
 ) -> None:
-    df = weather_main(
+    bike_df, taxi_df = weather_main(
         taxi_csv_path,
         location_main(taxi_csv_path, bike_csv_paths)
     )
 
-    remove_commas(df).to_csv(output_csv, index=False)
+    remove_commas(bike_df).to_csv("cleaned_" + DEFAULT_CSV_OUTPUT, index=False)
+    remove_commas(taxi_df).to_csv("cleaned_" + taxi_csv_path, index=False)
 
 
-def read_argv_with_defaults(argv: List[str]) -> (str, str, List[str]):
+def read_argv_with_defaults(argv: List[str]) -> (str, List[str]):
     if len(argv) < 3:
-        return DEFAULT_TAXI_CSV_PATH, DEFAULT_CSV_OUTPUT, DEFAULT_BIKE_CSV_PATHS
+        return DEFAULT_TAXI_CSV_PATH, DEFAULT_BIKE_CSV_PATHS
 
-    return argv[1], argv[2], argv[3:]
+    return argv[1], argv[2:]
 
 
 if __name__ == "__main__":

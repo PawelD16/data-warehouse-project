@@ -1,4 +1,4 @@
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 
 import pandas as pd
 
@@ -10,7 +10,7 @@ from weather.weather_dict import WeatherDict
 # Dane pogodowe mapowane są na podstawie daty rozpoczęcia przejazdu.
 # Powodem jest fakt, że dane o przejazdach taksówką wykonują identyczną operację.
 # Przejazdy rowerowe nie trwają długo, więc tym bardziej nie jest to problem.
-def process_taxi_ride_csv_file(file_path: str) -> WeatherDict:
+def process_taxi_ride_csv_file(file_path: str) -> Tuple[WeatherDict, pd.DataFrame]:
     data = pd.read_csv(file_path)
 
     column_to_datetime(data, "datetime")
@@ -19,7 +19,7 @@ def process_taxi_ride_csv_file(file_path: str) -> WeatherDict:
     for index, row in data.iterrows():
         weather_dict.add_weather_condition(row["datetime"], WeatherCondition(row))
 
-    return weather_dict
+    return weather_dict, data
 
 
 def map_stations_from_bike_csv_files(df: pd.DataFrame, weather_dict: WeatherDict) -> pd.DataFrame:
@@ -35,8 +35,9 @@ def map_stations_from_bike_csv_files(df: pd.DataFrame, weather_dict: WeatherDict
     return pd.concat([df, dict_df], axis=1)
 
 
-def weather_main(taxi_file_path: str, df: pd.DataFrame) -> pd.DataFrame:
+def weather_main(taxi_file_path: str, df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    weather_dict, data = process_taxi_ride_csv_file(taxi_file_path)
     return map_stations_from_bike_csv_files(
         df,
-        process_taxi_ride_csv_file(taxi_file_path)
-    )
+        weather_dict
+    ), data
