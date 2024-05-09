@@ -1,4 +1,5 @@
 import math
+import os
 from datetime import datetime, timedelta
 from typing import List, TypeVar, Dict
 
@@ -9,6 +10,11 @@ from location.location_point import LocationPoint
 
 K = TypeVar('K')
 V = TypeVar('V')
+
+
+def add_suffix_to_filename(filename: str, suffix: str) -> str:
+    name, ext = os.path.splitext(filename)
+    return f"{name}{suffix}{ext}"
 
 
 def filter_files_by_date(
