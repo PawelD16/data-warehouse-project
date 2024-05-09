@@ -7,12 +7,12 @@
   DTS:CreatorName="HURTOWANIEDANYC\stud"
   DTS:DTSID="{A90AA2C0-27DF-426D-8D13-A9C7BB06DA25}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DCB72494-7F74-4C47-9233-ECFAD15720FF}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{33E74098-E4B5-4F97-9742-E61444486B89}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,7 +45,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BABA4B9D-8378-4ADD-B32A-605E17440807}"
-          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;-- DIRTY&#xA;CREATE TABLE BulkCSVImported (&#xA;&#x9;ID NVARCHAR(50),&#xA;    RideTimestamp FLOAT,&#xA;    RideHour TINYINT,&#xA;    RideDay TINYINT,&#xA;    RideMonth TINYINT,&#xA;    RideDateTime DATETIME2,&#xA;    Timezone NVARCHAR(50),&#xA;    Source NVARCHAR(50),&#xA;    Destination NVARCHAR(50),&#xA;    CabType NVARCHAR(50),&#xA;    ProductId NVARCHAR(50),&#xA;    ProductName NVARCHAR(50),&#xA;    PriceNVarChar NVARCHAR(50), -- nie float ponieważ mamy czasem brak ceny. Zmienione zostanie na float z nullami w tabeli faktów&#xA;    DistanceMiles FLOAT,&#xA;    SurgeMultiplier FLOAT,&#xA;    Latitude FLOAT,&#xA;    Longitude FLOAT,&#xA;    Temperature FLOAT,&#xA;    ApparentTemperature FLOAT,&#xA;    ShortSummary NVARCHAR(50),&#xA;    LongSummary NVARCHAR(100),&#xA;    PrecipIntensity FLOAT,&#xA;    PrecipProbability FLOAT,&#xA;    Humidity FLOAT,&#xA;    WindSpeed FLOAT,&#xA;    WindGust FLOAT,&#xA;    WindGustTime INT,&#xA;    Visibility FLOAT,&#xA;    TemperatureHigh FLOAT,&#xA;    TemperatureHighTime INT,&#xA;    TemperatureLow FLOAT,&#xA;    TemperatureLowTime INT,&#xA;    ApparentTemperatureHigh FLOAT,&#xA;    ApparentTemperatureHighTime FLOAT,&#xA;    ApparentTemperatureLow FLOAT,&#xA;    ApparentTemperatureLowTime INT,&#xA;    Icon NVARCHAR(50),&#xA;    DewPoint FLOAT,&#xA;    Pressure FLOAT,&#xA;    WindBearing SMALLINT,&#xA;    CloudCover FLOAT,&#xA;    UvIndex TINYINT,&#xA;    Visibility_1_to_10 FLOAT,&#xA;    Ozone FLOAT,&#xA;    SunriseTime INT,&#xA;    SunsetTime INT,&#xA;    MoonPhase FLOAT,&#xA;    PrecipIntensityMax FLOAT,&#xA;    UvIndexTime INT,&#xA;    TemperatureMin FLOAT,&#xA;    TemperatureMinTime INT,&#xA;    TemperatureMax FLOAT,&#xA;    TemperatureMaxTime INT,&#xA;    ApparentTemperatureMin FLOAT,&#xA;    ApparentTemperatureMinTime INT,&#xA;    ApparentTemperatureMax FLOAT,&#xA;    ApparentTemperatureMaxTime INT,&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;-- DIRTY&#xA;CREATE TABLE BulkCSVTaxiImported (&#xA;&#x9;ID NVARCHAR(50),&#xA;    RideTimestamp FLOAT,&#xA;    RideHour TINYINT,&#xA;    RideDay TINYINT,&#xA;    RideMonth TINYINT,&#xA;    RideDateTime DATETIME2,&#xA;    Timezone NVARCHAR(50),&#xA;    Source NVARCHAR(50),&#xA;    Destination NVARCHAR(50),&#xA;    CabType NVARCHAR(50),&#xA;    ProductId NVARCHAR(50),&#xA;    ProductName NVARCHAR(50),&#xA;    PriceNVarChar NVARCHAR(50), -- nie float ponieważ mamy czasem brak ceny. Zmienione zostanie na float z nullami w tabeli faktów&#xA;    DistanceMiles FLOAT,&#xA;    SurgeMultiplier FLOAT,&#xA;    Latitude FLOAT,&#xA;    Longitude FLOAT,&#xA;    Temperature FLOAT,&#xA;    ApparentTemperature FLOAT,&#xA;    ShortSummary NVARCHAR(50),&#xA;    LongSummary NVARCHAR(100),&#xA;    PrecipIntensity FLOAT,&#xA;    PrecipProbability FLOAT,&#xA;    Humidity FLOAT,&#xA;    WindSpeed FLOAT,&#xA;    WindGust FLOAT,&#xA;    WindGustTime INT,&#xA;    Visibility FLOAT,&#xA;    TemperatureHigh FLOAT,&#xA;    TemperatureHighTime INT,&#xA;    TemperatureLow FLOAT,&#xA;    TemperatureLowTime INT,&#xA;    ApparentTemperatureHigh FLOAT,&#xA;    ApparentTemperatureHighTime FLOAT,&#xA;    ApparentTemperatureLow FLOAT,&#xA;    ApparentTemperatureLowTime INT,&#xA;    Icon NVARCHAR(50),&#xA;    DewPoint FLOAT,&#xA;    Pressure FLOAT,&#xA;    WindBearing SMALLINT,&#xA;    CloudCover FLOAT,&#xA;    UvIndex TINYINT,&#xA;    Visibility_1_to_10 FLOAT,&#xA;    Ozone FLOAT,&#xA;    SunriseTime INT,&#xA;    SunsetTime INT,&#xA;    MoonPhase FLOAT,&#xA;    PrecipIntensityMax FLOAT,&#xA;    UvIndexTime INT,&#xA;    TemperatureMin FLOAT,&#xA;    TemperatureMinTime INT,&#xA;    TemperatureMax FLOAT,&#xA;    TemperatureMaxTime INT,&#xA;    ApparentTemperatureMin FLOAT,&#xA;    ApparentTemperatureMinTime INT,&#xA;    ApparentTemperatureMax FLOAT,&#xA;    ApparentTemperatureMaxTime INT,&#xA;);&#xA;&#xA;CREATE TABLE BulkCSVBikeImported (&#xA;&#x9;Tripduration INT,&#xA;&#x9;Starttime DATETIME2,&#xA;&#x9;Stoptime DATETIME2,&#xA;&#x9;StartStationId INT,&#xA;&#x9;StartStationName NVARCHAR(100),&#xA;&#x9;StartStationLatitude FLOAT,&#xA;&#x9;StartStationLongitude FLOAT,&#xA;&#x9;EndStationId INT,&#xA;&#x9;EndStationName NVARCHAR(100),&#xA;&#x9;EndStationLatitude FLOAT,&#xA;&#x9;EndStationLongitude FLOAT,&#xA;&#x9;BikeId INT,&#xA;&#x9;UserType NVARCHAR(20),&#xA;&#x9;BirthYear FLOAT, -- czasem to float (???)&#xA;&#x9;gender TINYINT,&#xA;    Source NVARCHAR(50),&#xA;    Destination NVARCHAR(50),&#xA;    Temperature FLOAT,&#xA;    ApparentTemperature FLOAT,&#xA;    ShortSummary NVARCHAR(50),&#xA;    LongSummary NVARCHAR(100),&#xA;    PrecipIntensity FLOAT,&#xA;    PrecipProbability FLOAT,&#xA;    Humidity FLOAT,&#xA;    WindSpeed FLOAT,&#xA;    WindGust FLOAT,&#xA;    WindGustTime INT,&#xA;    Visibility FLOAT,&#xA;    TemperatureHigh FLOAT,&#xA;    TemperatureHighTime INT,&#xA;    TemperatureLow FLOAT,&#xA;    TemperatureLowTime INT,&#xA;    ApparentTemperatureHigh FLOAT,&#xA;    ApparentTemperatureHighTime FLOAT,&#xA;    ApparentTemperatureLow FLOAT,&#xA;    ApparentTemperatureLowTime INT,&#xA;    Icon NVARCHAR(50),&#xA;    DewPoint FLOAT,&#xA;    Pressure FLOAT,&#xA;    WindBearing SMALLINT,&#xA;    CloudCover FLOAT,&#xA;    UvIndex TINYINT,&#xA;    Visibility_1_to_10 FLOAT,&#xA;    Ozone FLOAT,&#xA;    SunriseTime INT,&#xA;    SunsetTime INT,&#xA;    MoonPhase FLOAT,&#xA;    PrecipIntensityMax FLOAT,&#xA;    UvIndexTime INT,&#xA;    TemperatureMin FLOAT,&#xA;    TemperatureMinTime INT,&#xA;    TemperatureMax FLOAT,&#xA;    TemperatureMaxTime INT,&#xA;    ApparentTemperatureMin FLOAT,&#xA;    ApparentTemperatureMinTime INT,&#xA;    ApparentTemperatureMax FLOAT,&#xA;    ApparentTemperatureMaxTime INT,&#xA;);&#xA;&#xA;CREATE TABLE BulkCSVImported (&#xA;    RideDateTime DATETIME2,&#xA;    Source NVARCHAR(50),&#xA;    Destination NVARCHAR(50),&#xA;    CabType NVARCHAR(20),&#xA;    ProductId NVARCHAR(50),&#xA;    ProductName NVARCHAR(50),&#xA;    PriceNVarChar NVARCHAR(50), -- nie float ponieważ mamy czasem brak ceny. Zmienione zostanie na float z nullami w tabeli faktów&#xA;    DistanceMiles FLOAT,&#xA;    SurgeMultiplier FLOAT,&#xA;    Latitude FLOAT,&#xA;    Longitude FLOAT,&#xA;    Temperature FLOAT,&#xA;    ApparentTemperature FLOAT,&#xA;    ShortSummary NVARCHAR(50),&#xA;    PrecipIntensity FLOAT,&#xA;    PrecipProbability FLOAT,&#xA;    Humidity FLOAT,&#xA;    WindSpeed FLOAT,&#xA;    WindGust FLOAT,&#xA;    Visibility FLOAT,&#xA;    TemperatureHigh FLOAT,&#xA;    TemperatureLow FLOAT,&#xA;    ApparentTemperatureHigh FLOAT,&#xA;    ApparentTemperatureLow FLOAT,&#xA;    Icon NVARCHAR(50),&#xA;    DewPoint FLOAT,&#xA;    Pressure FLOAT,&#xA;    WindBearing SMALLINT,&#xA;    CloudCover FLOAT,&#xA;    UvIndex TINYINT,&#xA;    Ozone FLOAT,&#xA;    SunriseTime INT,&#xA;    SunsetTime INT,&#xA;    MoonPhase FLOAT,&#xA;    PrecipIntensityMax FLOAT,&#xA;    TemperatureMin FLOAT,&#xA;    TemperatureMax FLOAT,&#xA;    ApparentTemperatureMin FLOAT,&#xA;    ApparentTemperatureMax FLOAT&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -79,7 +79,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BABA4B9D-8378-4ADD-B32A-605E17440807}"
-          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;IF OBJECT_ID('BulkCSVImported', 'U') IS NOT NULL &#xA;  DROP TABLE BulkCSVImported; &#xA;&#xA;IF OBJECT_ID('Months', 'U') IS NOT NULL &#xA;  DROP TABLE Months; &#xA;&#xA;IF OBJECT_ID('DaysOfWeek', 'U') IS NOT NULL &#xA;  DROP TABLE DaysOfWeek;&#xA;&#xA;IF OBJECT_ID('FACT_RIDE', 'U') IS NOT NULL &#xA;DROP TABLE FACT_RIDE;  &#xA;&#xA;IF OBJECT_ID('DIM_DATE', 'U') IS NOT NULL &#xA;DROP TABLE DIM_DATE; &#xA;&#xA;IF OBJECT_ID('DIM_TIME', 'U') IS NOT NULL &#xA;DROP TABLE DIM_TIME; &#xA;&#xA;IF OBJECT_ID('DIM_LOCATION', 'U') IS NOT NULL &#xA;DROP TABLE DIM_LOCATION; &#xA;&#xA;IF OBJECT_ID('DIM_WEATHER', 'U') IS NOT NULL &#xA;DROP TABLE DIM_WEATHER; &#xA;&#xA;IF OBJECT_ID('DIM_CAB', 'U') IS NOT NULL &#xA;DROP TABLE DIM_CAB; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;IF OBJECT_ID('FACT_RIDE', 'U') IS NOT NULL &#xA;DROP TABLE FACT_RIDE;&#xA;&#xA;IF OBJECT_ID('BulkCSVTaxiImported', 'U') IS NOT NULL &#xA;  DROP TABLE BulkCSVTaxiImported; &#xA;&#xA;IF OBJECT_ID('BulkCSVBikeImported', 'U') IS NOT NULL &#xA;  DROP TABLE BulkCSVBikeImported; &#xA;&#xA;IF OBJECT_ID('BulkCSVImported', 'U') IS NOT NULL &#xA;  DROP TABLE BulkCSVImported; &#xA;&#xA;IF OBJECT_ID('Months', 'U') IS NOT NULL &#xA;  DROP TABLE Months; &#xA;&#xA;IF OBJECT_ID('DaysOfWeek', 'U') IS NOT NULL &#xA;  DROP TABLE DaysOfWeek; &#xA;&#xA;IF OBJECT_ID('DIM_DATE', 'U') IS NOT NULL &#xA;DROP TABLE DIM_DATE; &#xA;&#xA;IF OBJECT_ID('DIM_TIME', 'U') IS NOT NULL &#xA;DROP TABLE DIM_TIME; &#xA;&#xA;IF OBJECT_ID('DIM_LOCATION', 'U') IS NOT NULL &#xA;DROP TABLE DIM_LOCATION; &#xA;&#xA;IF OBJECT_ID('DIM_WEATHER', 'U') IS NOT NULL &#xA;DROP TABLE DIM_WEATHER; &#xA;&#xA;IF OBJECT_ID('DIM_CAB', 'U') IS NOT NULL &#xA;DROP TABLE DIM_CAB; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -96,7 +96,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BABA4B9D-8378-4ADD-B32A-605E17440807}"
-          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;BULK &#xA;INSERT BulkCSVImported&#xA;FROM 'C:\Users\stud\Desktop\projekt\dane\rideshare_kaggle_cleaned.csv'&#xA;WITH&#xA;(&#xA;&#x9;FORMAT = 'CSV',&#xA;    FIRSTROW = 2&#xA;);&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD RideDateTimeToInt AS CONVERT(BIGINT, FORMAT(RideDateTime, 'yyyyMMddHHmmss'));&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD Price AS &#xA;&#x9;CASE &#xA;&#x9;&#x9;WHEN PriceNVarChar = 'NA' THEN NULL&#xA;        ELSE CONVERT(FLOAT, PriceNVarChar)&#xA;    END;&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD FK_LocationID_Source TINYINT,&#xA;FK_LocationID_Destination TINYINT,&#xA;FK_WeatherID SMALLINT,&#xA;FK_CabID TINYINT;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;BULK &#xA;INSERT BulkCSVTaxiImported&#xA;FROM 'C:\Users\stud\Desktop\projekt\data\rideshare_kaggle_cleaned.csv'&#xA;WITH&#xA;(&#xA;    FORMAT = 'CSV',&#xA;    FIRSTROW = 2&#xA;);&#xA;&#xA;BULK&#xA;INSERT BulkCSVBikeImported&#xA;FROM 'C:\Users\stud\Desktop\projekt\data\bluebike-normalized_cleaned.csv'&#xA;WITH&#xA;(&#xA;    FORMAT = 'CSV',&#xA;    FIRSTROW = 2&#xA;);&#xA;&#xA;INSERT INTO BulkCSVImported (&#xA;&#x9;RideDateTime,&#xA;    Source,&#xA;    Destination,&#xA;    CabType,&#xA;    ProductId,&#xA;    ProductName,&#xA;    PriceNVarChar,&#xA;    DistanceMiles,&#xA;    SurgeMultiplier,&#xA;    Latitude,&#xA;    Longitude,&#xA;    Temperature,&#xA;    ApparentTemperature,&#xA;    ShortSummary,&#xA;    PrecipIntensity,&#xA;    PrecipProbability,&#xA;    Humidity,&#xA;    WindSpeed,&#xA;    WindGust,&#xA;    Visibility,&#xA;    TemperatureHigh,&#xA;    TemperatureLow,&#xA;    ApparentTemperatureHigh,&#xA;    ApparentTemperatureLow,&#xA;    Icon,&#xA;    DewPoint,&#xA;    Pressure,&#xA;    WindBearing,&#xA;    CloudCover,&#xA;    UvIndex,&#xA;    Ozone,&#xA;    SunriseTime,&#xA;    SunsetTime,&#xA;    MoonPhase,&#xA;    PrecipIntensityMax,&#xA;    TemperatureMin,&#xA;    TemperatureMax,&#xA;    ApparentTemperatureMin,&#xA;    ApparentTemperatureMax&#xA;)&#xA;SELECT&#xA;    RideDateTime,&#xA;    Source,&#xA;    Destination,&#xA;    CabType,&#xA;    ProductId,&#xA;    ProductName,&#xA;    PriceNVarChar,&#xA;    DistanceMiles,&#xA;    SurgeMultiplier,&#xA;    Latitude,&#xA;    Longitude,&#xA;    Temperature,&#xA;    ApparentTemperature,&#xA;    ShortSummary,&#xA;    PrecipIntensity,&#xA;    PrecipProbability,&#xA;    Humidity,&#xA;    WindSpeed,&#xA;    WindGust,&#xA;    Visibility,&#xA;    TemperatureHigh,&#xA;    TemperatureLow,&#xA;    ApparentTemperatureHigh,&#xA;    ApparentTemperatureLow,&#xA;    Icon,&#xA;    DewPoint,&#xA;    Pressure,&#xA;    WindBearing,&#xA;    CloudCover,&#xA;    UvIndex,&#xA;    Ozone,&#xA;    SunriseTime,&#xA;    SunsetTime,&#xA;    MoonPhase,&#xA;    PrecipIntensityMax,&#xA;    TemperatureMin,&#xA;    TemperatureMax,&#xA;    ApparentTemperatureMin,&#xA;    ApparentTemperatureMax&#xA;FROM BulkCSVTaxiImported;&#xA;&#xA;INSERT INTO BulkCSVImported (&#xA;&#x9;RideDateTime,&#xA;    Source,&#xA;    Destination,&#xA;    CabType,&#xA;    ProductId,&#xA;    ProductName,&#xA;    PriceNVarChar,&#xA;    DistanceMiles,&#xA;    SurgeMultiplier,&#xA;    Latitude,&#xA;    Longitude,&#xA;    Temperature,&#xA;    ApparentTemperature,&#xA;    ShortSummary,&#xA;    PrecipIntensity,&#xA;    PrecipProbability,&#xA;    Humidity,&#xA;    WindSpeed,&#xA;    WindGust,&#xA;    Visibility,&#xA;    TemperatureHigh,&#xA;    TemperatureLow,&#xA;    ApparentTemperatureHigh,&#xA;    ApparentTemperatureLow,&#xA;    Icon,&#xA;    DewPoint,&#xA;    Pressure,&#xA;    WindBearing,&#xA;    CloudCover,&#xA;    UvIndex,&#xA;    Ozone,&#xA;    SunriseTime,&#xA;    SunsetTime,&#xA;    MoonPhase,&#xA;    PrecipIntensityMax,&#xA;    TemperatureMin,&#xA;    TemperatureMax,&#xA;    ApparentTemperatureMin,&#xA;    ApparentTemperatureMax&#xA;) &#xA;SELECT&#xA;&#x9;Starttime AS RideDateTime,&#xA;&#x9;Source,&#xA;    Destination,&#xA;&#x9;'Bike' AS CabType,&#xA;&#x9;UserType AS ProductId,&#xA;&#x9;UserType AS ProductName,&#xA;&#x9;'NA' AS PriceNVarChar,&#xA;&#x9;NULL AS DistanceMiles,&#xA;    NULL AS SurgeMultiplier,&#xA;&#x9;StartStationLatitude AS Latitude,&#xA;&#x9;StartStationLongitude AS Longitude,   &#xA;    Temperature,&#xA;    ApparentTemperature,&#xA;    ShortSummary,&#xA;    PrecipIntensity,&#xA;    PrecipProbability,&#xA;    Humidity,&#xA;    WindSpeed,&#xA;    WindGust,&#xA;    Visibility,&#xA;    TemperatureHigh,&#xA;    TemperatureLow,&#xA;    ApparentTemperatureHigh,&#xA;    ApparentTemperatureLow,&#xA;    Icon,&#xA;    DewPoint,&#xA;    Pressure,&#xA;    WindBearing,&#xA;    CloudCover,&#xA;    UvIndex,&#xA;    Ozone,&#xA;    SunriseTime,&#xA;    SunsetTime,&#xA;    MoonPhase,&#xA;    PrecipIntensityMax,&#xA;    TemperatureMin,&#xA;    TemperatureMax,&#xA;    ApparentTemperatureMin,&#xA;    ApparentTemperatureMax&#xA;FROM BulkCSVBikeImported;&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD RideDateTimeToInt AS CONVERT(BIGINT, FORMAT(RideDateTime, 'yyyyMMddHHmmss'));&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD Price AS &#xA;    CASE &#xA;        WHEN PriceNVarChar = 'NA' THEN NULL&#xA;        ELSE CONVERT(FLOAT, PriceNVarChar)&#xA;    END;&#xA;&#xA;ALTER TABLE BulkCSVImported&#xA;ADD FK_LocationID_Source TINYINT,&#xA;FK_LocationID_Destination TINYINT,&#xA;FK_WeatherID SMALLINT,&#xA;FK_CabID TINYINT;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -108,7 +108,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dayOfWeek"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -125,7 +125,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dim_cab"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -142,7 +142,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dim_date"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -159,7 +159,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dim_location"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -176,7 +176,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dim_time"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -193,7 +193,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert dim_weather"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -227,12 +227,30 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="insert month"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{BABA4B9D-8378-4ADD-B32A-605E17440807}"
           SQLTask:SqlStatementSource="USE Projekt;&#xA;&#xA;INSERT INTO Months (ID, [MonthName])&#xA;VALUES &#xA;(1, 'january'), &#xA;(2, 'february'), &#xA;(3, 'march'),&#xA;(4, 'april'), &#xA;(5, 'may'), &#xA;(6, 'june'),&#xA;(7, 'july'), &#xA;(8, 'august'), &#xA;(9, 'september'),&#xA;(10, 'october'),&#xA;(11, 'november'), &#xA;(12, 'december');" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Python normalization of data"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{18F8919E-9F2D-4AA5-984F-7846548A33C2}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Python normalization of data"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Users\stud\AppData\Local\Microsoft\WindowsApps\python3.exe"
+          Arguments="C:\Users\stud\Desktop\projekt\etl\normalize_blue_bike_data\main.py"
+          WorkingDirectory="C:\Users\stud\Desktop\projekt\etl\normalize_blue_bike_data" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -344,6 +362,14 @@
       DTS:ObjectName="Constraint 16"
       DTS:To="Package\references" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 17]"
+      DTS:CreationName=""
+      DTS:DTSID="{04CC38EB-4DFC-4885-8C58-6725D40B8E44}"
+      DTS:From="Package\Python normalization of data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 17"
+      DTS:To="Package\delete" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{F52EC890-7BA6-495B-8C76-EA7BFB4F75AD}"
@@ -419,15 +445,63 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\create bulk"
+          TopLeft="427,174" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\create dimensions and facts"
+          TopLeft="385,263" />
         <NodeLayout
           Size="108,42"
           Id="Package\delete"
           TopLeft="433,81" />
         <NodeLayout
-          Size="131,42"
-          Id="Package\create bulk"
-          TopLeft="427,174" />
+          Size="163,42"
+          Id="Package\insert bulk"
+          TopLeft="409,347" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\insert dayOfWeek"
+          TopLeft="146,521" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\insert dim_cab"
+          TopLeft="932,491" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\insert dim_date"
+          TopLeft="160,604" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\insert dim_location"
+          TopLeft="519,478" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\insert dim_time"
+          TopLeft="343,473" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\insert dim_weather"
+          TopLeft="706,477" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\insert fact_ride"
+          TopLeft="538.75,805" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\insert month"
+          TopLeft="173,438" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\references"
+          TopLeft="560,912.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\update columns in bulk"
+          TopLeft="511,700" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="489.75,123">
@@ -450,10 +524,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="210,42"
-          Id="Package\create dimensions and facts"
-          TopLeft="385,263" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="491.25,216">
@@ -476,302 +546,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\insert bulk"
-          TopLeft="409,347" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="490.25,305">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42"
-              Start="0,0"
-              End="0,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="139,42"
-          Id="Package\insert month"
-          TopLeft="173,438" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="490.5,389">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-248,49"
-              Start="0,0"
-              End="-248,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="-4,24.5" />
-                  <mssgle:LineSegment
-                    End="-244,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-244,24.5"
-                    Point2="-248,24.5"
-                    Point3="-248,28.5" />
-                  <mssgle:LineSegment
-                    End="-248,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162,42"
-          Id="Package\insert dayOfWeek"
-          TopLeft="146,521" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="242.5,480">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-15.5,41"
-              Start="0,0"
-              End="-15.5,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="-4,20.5" />
-                  <mssgle:LineSegment
-                    End="-11.5,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-11.5,20.5"
-                    Point2="-15.5,20.5"
-                    Point3="-15.5,24.5" />
-                  <mssgle:LineSegment
-                    End="-15.5,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\insert dim_date"
-          TopLeft="160,604" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="227,563">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9,41"
-              Start="0,0"
-              End="9,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.5"
-                    Point2="0,20.5"
-                    Point3="4,20.5" />
-                  <mssgle:LineSegment
-                    End="5,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5,20.5"
-                    Point2="9,20.5"
-                    Point3="9,24.5" />
-                  <mssgle:LineSegment
-                    End="9,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\insert dim_time"
-          TopLeft="343,473" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="516.333333333333,389">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-97.3333333333334,84"
-              Start="0,0"
-              End="-97.3333333333334,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.089914945322" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.089914945322"
-                    Point2="0,34.089914945322"
-                    Point3="-4,34.089914945322" />
-                  <mssgle:LineSegment
-                    End="-93.3333333333334,34.089914945322" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-93.3333333333334,34.089914945322"
-                    Point2="-97.3333333333334,34.089914945322"
-                    Point3="-97.3333333333334,38.089914945322" />
-                  <mssgle:LineSegment
-                    End="-97.3333333333334,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\insert dim_location"
-          TopLeft="519,478" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="529.25,389">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73.75,89"
-              Start="0,0"
-              End="73.75,81.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.6217303822938" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.6217303822938"
-                    Point2="0,30.6217303822938"
-                    Point3="4,30.6217303822938" />
-                  <mssgle:LineSegment
-                    End="69.75,30.6217303822938" />
-                  <mssgle:CubicBezierSegment
-                    Point1="69.75,30.6217303822938"
-                    Point2="73.75,30.6217303822938"
-                    Point3="73.75,34.6217303822938" />
-                  <mssgle:LineSegment
-                    End="73.75,81.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170,42"
-          Id="Package\insert dim_weather"
-          TopLeft="706,477" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="537,389">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="254,88"
-              Start="0,0"
-              End="254,80.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.4377682403433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.4377682403433"
-                    Point2="0,26.4377682403433"
-                    Point3="4,26.4377682403433" />
-                  <mssgle:LineSegment
-                    End="250,26.4377682403433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="250,26.4377682403433"
-                    Point2="254,26.4377682403433"
-                    Point3="254,30.4377682403433" />
-                  <mssgle:LineSegment
-                    End="254,80.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="148,42"
-          Id="Package\insert dim_cab"
-          TopLeft="932,491" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="542.166666666667,389">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="463.833333333333,102"
-              Start="0,0"
-              End="463.833333333333,94.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3323353293413" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3323353293413"
-                    Point2="0,27.3323353293413"
-                    Point3="4,27.3323353293413" />
-                  <mssgle:LineSegment
-                    End="459.833333333333,27.3323353293413" />
-                  <mssgle:CubicBezierSegment
-                    Point1="459.833333333333,27.3323353293413"
-                    Point2="463.833333333333,27.3323353293413"
-                    Point3="463.833333333333,31.3323353293413" />
-                  <mssgle:LineSegment
-                    End="463.833333333333,94.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188,42"
-          Id="Package\update columns in bulk"
-          TopLeft="511,700" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
           TopLeft="236,646">
@@ -942,10 +716,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="150,42"
-          Id="Package\insert fact_ride"
-          TopLeft="538.75,805" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 15]"
           TopLeft="605,742">
@@ -980,10 +750,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="128,42"
-          Id="Package\references"
-          TopLeft="560,912.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 16]"
           TopLeft="613.75,847">
@@ -1010,6 +776,292 @@
                     Point3="10.25,36.75" />
                   <mssgle:LineSegment
                     End="10.25,58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="490.25,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="490.5,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-248,49"
+              Start="0,0"
+              End="-248,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="-4,24.5" />
+                  <mssgle:LineSegment
+                    End="-244,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-244,24.5"
+                    Point2="-248,24.5"
+                    Point3="-248,28.5" />
+                  <mssgle:LineSegment
+                    End="-248,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="242.5,480">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5,41"
+              Start="0,0"
+              End="-15.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,20.5"
+                    Point2="-15.5,20.5"
+                    Point3="-15.5,24.5" />
+                  <mssgle:LineSegment
+                    End="-15.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="227,563">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,41"
+              Start="0,0"
+              End="9,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,20.5"
+                    Point2="9,20.5"
+                    Point3="9,24.5" />
+                  <mssgle:LineSegment
+                    End="9,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="516.333333333333,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-97.3333333333334,84"
+              Start="0,0"
+              End="-97.3333333333334,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.089914945322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.089914945322"
+                    Point2="0,34.089914945322"
+                    Point3="-4,34.089914945322" />
+                  <mssgle:LineSegment
+                    End="-93.3333333333334,34.089914945322" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-93.3333333333334,34.089914945322"
+                    Point2="-97.3333333333334,34.089914945322"
+                    Point3="-97.3333333333334,38.089914945322" />
+                  <mssgle:LineSegment
+                    End="-97.3333333333334,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="529.25,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.75,89"
+              Start="0,0"
+              End="73.75,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6217303822938" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6217303822938"
+                    Point2="0,30.6217303822938"
+                    Point3="4,30.6217303822938" />
+                  <mssgle:LineSegment
+                    End="69.75,30.6217303822938" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.75,30.6217303822938"
+                    Point2="73.75,30.6217303822938"
+                    Point3="73.75,34.6217303822938" />
+                  <mssgle:LineSegment
+                    End="73.75,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="537,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254,88"
+              Start="0,0"
+              End="254,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4377682403433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4377682403433"
+                    Point2="0,26.4377682403433"
+                    Point3="4,26.4377682403433" />
+                  <mssgle:LineSegment
+                    End="250,26.4377682403433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250,26.4377682403433"
+                    Point2="254,26.4377682403433"
+                    Point3="254,30.4377682403433" />
+                  <mssgle:LineSegment
+                    End="254,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="542.166666666667,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="463.833333333333,102"
+              Start="0,0"
+              End="463.833333333333,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3323353293413" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3323353293413"
+                    Point2="0,27.3323353293413"
+                    Point3="4,27.3323353293413" />
+                  <mssgle:LineSegment
+                    End="459.833333333333,27.3323353293413" />
+                  <mssgle:CubicBezierSegment
+                    Point1="459.833333333333,27.3323353293413"
+                    Point2="463.833333333333,27.3323353293413"
+                    Point3="463.833333333333,31.3323353293413" />
+                  <mssgle:LineSegment
+                    End="463.833333333333,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="214.5,42"
+          Id="Package\Python normalization of data"
+          TopLeft="82,81" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 17]"
+          TopLeft="296.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="136.5,0"
+              Start="0,0"
+              End="129,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="129,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

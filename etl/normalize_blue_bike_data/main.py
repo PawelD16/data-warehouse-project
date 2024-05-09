@@ -34,3 +34,4 @@ def read_argv_with_defaults(argv: List[str]) -> (str, List[str]):
 
 if __name__ == "__main__":
     main(*read_argv_with_defaults(sys.argv))
+    sys.exit(0)
