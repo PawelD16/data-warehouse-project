@@ -24,7 +24,7 @@ class WeatherDict:
     def get_closest_time_point(self, target: datetime) -> Tuple[datetime, WeatherCondition]:
         target_normalized = self.__time_rounding(target)
 
-        if target_normalized in self.__weather_dict.keys():
+        if target_normalized in self.__weather_dict:
             return target, self.__weather_dict[target_normalized]
 
         closest_time = None
