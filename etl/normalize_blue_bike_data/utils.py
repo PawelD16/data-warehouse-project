@@ -11,6 +11,9 @@ from location.location_point import LocationPoint
 K = TypeVar('K')
 V = TypeVar('V')
 
+# Promień Ziemi w metrach
+R = 6371000
+
 
 def add_suffix_to_filename(filename: str, suffix: str) -> str:
     name, ext = os.path.splitext(filename)
@@ -34,16 +37,33 @@ def filter_files_by_date(
 
 
 def add_to_dict_if_not_exists(dictionary: Dict[K, V], key: K, value: V) -> Dict[K, V]:
-    if key not in dictionary.keys():
+    if key not in dictionary:
         dictionary[key] = value
 
     return dictionary
 
 
-def distance(point1: LocationPoint, point2: LocationPoint):
-    return math.sqrt(
-        (point1.get_latitude() - point2.get_latitude()) ** 2 + (point1.get_longitude() - point2.get_longitude()) ** 2
+def distance(point1: LocationPoint, point2: LocationPoint) -> float:
+    # Stopnie na radiany
+    r_lat1, r_lon1, r_lat2, r_lon2 = map(
+        math.radians,
+        [
+            point1.get_latitude(),
+            point1.get_longitude(),
+            point2.get_latitude(),
+            point2.get_longitude()
+        ]
     )
+
+    # Różnica koordynatów
+    d_lat = r_lat2 - r_lat1
+    d_lon = r_lon2 - r_lon1
+
+    # Haversine
+    a = math.sin(d_lat / 2) ** 2 + math.cos(r_lat1) * math.cos(r_lat2) * math.sin(d_lon / 2) ** 2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+    return R * c
 
 
 def remove_commas_inside_quotes(input_csv_path: str, output_csv_path: str) -> None:

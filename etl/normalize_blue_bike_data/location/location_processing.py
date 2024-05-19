@@ -17,14 +17,35 @@ def process_taxi_ride_csv_file(file_path: str) -> (LocationDict, datetime, datet
     min_date = data["datetime"].min()
     max_date = data["datetime"].max()
 
+    center_point_location = {
+        "Haymarket Square": LocationPoint(42.361583, -71.056083),
+        "Boston University": LocationPoint(42.3505, -71.1054),
+        "Theatre District": LocationPoint(42.3503, -71.0627),
+        "Back Bay": LocationPoint(42.3503, -71.0809),
+        "Financial District": LocationPoint(42.3557, -71.0551),
+        "Beacon Hill": LocationPoint(42.3588, -71.0707),
+        "Northeastern University": LocationPoint(42.3398, -71.0892),
+        "West End": LocationPoint(42.3644, -71.0639),
+        "South Station": LocationPoint(42.3523, -71.0552),
+        "North Station": LocationPoint(42.3656, -71.0616),
+        "North End": LocationPoint(42.3647, -71.0542),
+        "Fenway": LocationPoint(42.3467, -71.0972)
+    }
+
+    for name, location_point in center_point_location.items():
+        location_dict.add_location_points(name, location_point)
+    """
+    Latitude and longitude aren't good to map with because they do not correspond to pick up locations.
+    Same point is mapped to different locations. So we map to the center point.
+         
     for index, row in data.iterrows():
         # Podawana wysokość i szerokość geograficzna dotyczą 'source'.
         # Zawiera wszystkie lokalizacje, więc nie mamy problemu, że nie używane jest destination
-        location_name = row["source"]
         location_dict.add_location_points(
-            location_name,
+            row["source"],
             LocationPoint(row["latitude"], row["longitude"])
         )
+    """
 
     return location_dict, min_date, max_date
 
