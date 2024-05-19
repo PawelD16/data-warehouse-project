@@ -125,7 +125,8 @@ CREATE TABLE BulkCSVImported (
     RideDateTime DATETIME2,
     Source NVARCHAR(50),
     Destination NVARCHAR(50),
-    CabType NVARCHAR(20),
+    TransportType NVARCHAR(20),
+    TransportCompany NVARCHAR(20),
     ProductId NVARCHAR(50),
     ProductName NVARCHAR(50),
     PriceNVarChar NVARCHAR(50), -- nie float ponieważ mamy czasem brak ceny. Zmienione zostanie na float z nullami w tabeli faktów
@@ -186,9 +187,7 @@ CREATE TABLE DIM_DATE (
 CREATE TABLE DIM_TIME (
 	TimeID INT PRIMARY KEY,
 	TimeOfDay VARCHAR(20),
-	[Hour] TINYINT,
-	[Minute] TINYINT,
-	[Second] TINYINT,
+	[Hour] TINYINT
 );
 
 CREATE TABLE DIM_LOCATION (
@@ -212,11 +211,12 @@ CREATE TABLE DIM_WEATHER (
 	WindSpeedCategory VARCHAR(25)
 );
 
-CREATE TABLE DIM_CAB (
-	CabID TINYINT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	CabCompany NVARCHAR(50),
-	CabProductID NVARCHAR(50),
-	CabProductName NVARCHAR(50)
+CREATE TABLE DIM_TRANSPORT (
+	TransportID TINYINT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	TransportType NVARCHAR(50),
+	TransportCompany NVARCHAR(50),
+	TransportProductID NVARCHAR(50),
+	TransportProductName NVARCHAR(50)
 );
 
 -- FACTS
@@ -230,5 +230,5 @@ CREATE TABLE FACT_RIDE (
 	FK_LocationID_Source TINYINT,
 	FK_LocationID_Destination TINYINT,
 	FK_WeatherID SMALLINT,
-	FK_CabID TINYINT
+	FK_TransportID TINYINT
 );

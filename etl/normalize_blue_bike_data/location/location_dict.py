@@ -29,10 +29,8 @@ class LocationDict:
                 if dist < min_distance:
                     min_distance = dist
                     closest_location = name
-                    self.__locations_pre_mapped[target_name] = closest_location
-                    if dist <= 0:
-                        return closest_location
 
+        self.__locations_pre_mapped[target_name] = closest_location
         return closest_location
 
     def __str__(self) -> str:

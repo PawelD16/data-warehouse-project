@@ -38,7 +38,7 @@ LEFT JOIN Months M ON MONTH(RideDateTime) = M.ID
 LEFT JOIN DaysOfWeek DT ON DATEPART(WEEKDAY, RideDateTime) = DT.ID
 ORDER BY DateID;
 
-INSERT INTO DIM_TIME (TimeID, TimeOfDay, [Hour], [Minute],	[Second])
+INSERT INTO DIM_TIME (TimeID, TimeOfDay, [Hour])
 SELECT DISTINCT
     RideDateTimeToInt % 1000000 AS TimeID,
 	CASE 
@@ -50,9 +50,7 @@ SELECT DISTINCT
 		WHEN (RideDateTimeToInt / 10000) % 100 >= 0 AND (RideDateTimeToInt / 10000) % 100 < 4  THEN 'night'
 		ELSE Null
 	END AS TimeOfDay,
-	(RideDateTimeToInt / 10000) % 100 AS [Hour],
-	(RideDateTimeToInt / 100) % 100 AS [Minute],
-	RideDateTimeToInt % 100 AS [Second]
+	(RideDateTimeToInt / 10000) % 100 AS [Hour]
 FROM BulkCSVImported
 ORDER BY TimeID;
 
@@ -91,11 +89,12 @@ SELECT DISTINCT
 	END AS WindSpeedCategory
 FROM BulkCSVImported;
 
-INSERT INTO DIM_CAB (CabCompany, CabProductID, CabProductName)
+INSERT INTO DIM_TRANSPORT (TransportType, TransportCompany, TransportProductID, TransportProductName)
 SELECT DISTINCT 
-	CabType AS CabCompany,
-	ProductId AS CabProductID,
-    ProductName AS CabProductName
+	TransportType AS TransportType,
+	TransportCompany AS TransportCompany,
+	ProductId AS TransportProductID,
+        ProductName AS TransportProductName
 FROM BulkCSVImported;
 
 -- FACT
@@ -128,13 +127,14 @@ SET FK_WeatherID = (
 );
 
 UPDATE BulkCSVImported
-SET FK_CabID = (
-	SELECT CabID
-	FROM DIM_CAB
+SET FK_TransportID = (
+	SELECT TransportID
+	FROM DIM_TRANSPORT
 	WHERE
-		CabCompany = BulkCSVImported.CabType AND
-		CabProductID = BulkCSVImported.ProductId AND
-		CabProductName = BulkCSVImported.ProductName
+		TransportType = BulkCSVImported.TransportType AND
+		TransportCompany = BulkCSVImported.TransportCompany AND
+		TransportProductID = BulkCSVImported.ProductId AND
+		TransportProductName = BulkCSVImported.ProductName
 );
 
 INSERT INTO FACT_RIDE (
@@ -146,7 +146,7 @@ INSERT INTO FACT_RIDE (
 	FK_LocationID_Source, 
 	FK_LocationID_Destination, 
 	FK_WeatherID, 
-	FK_CabID
+	FK_TransportID
 )
 SELECT 
 	Price,
@@ -157,5 +157,5 @@ SELECT
 	FK_LocationID_Source,
 	FK_LocationID_Destination,
 	FK_WeatherID, 
-	FK_CabID
+	FK_TransportID
 FROM BulkCSVImported;

@@ -19,10 +19,11 @@ WITH
 );
 
 INSERT INTO BulkCSVImported (
-	RideDateTime,
+    RideDateTime,
     Source,
     Destination,
-    CabType,
+    TransportType,
+    TransportCompany,
     ProductId,
     ProductName,
     PriceNVarChar,
@@ -63,7 +64,8 @@ SELECT
     RideDateTime,
     Source,
     Destination,
-    CabType,
+    'Taxi' AS TransportType,
+    CabType AS TransportCompany,
     ProductId,
     ProductName,
     PriceNVarChar,
@@ -105,7 +107,8 @@ INSERT INTO BulkCSVImported (
 	RideDateTime,
     Source,
     Destination,
-    CabType,
+	TransportType,
+    TransportCompany,
     ProductId,
     ProductName,
     PriceNVarChar,
@@ -146,7 +149,8 @@ SELECT
 	Starttime AS RideDateTime,
 	Source,
     Destination,
-	'Bike' AS CabType,
+	'Bike' AS TransportType,
+	'BlueBike' AS TransportCompany,
 	UserType AS ProductId,
 	UserType AS ProductName,
 	'NA' AS PriceNVarChar,
@@ -198,4 +202,4 @@ ALTER TABLE BulkCSVImported
 ADD FK_LocationID_Source TINYINT,
 FK_LocationID_Destination TINYINT,
 FK_WeatherID SMALLINT,
-FK_CabID TINYINT;
+FK_TransportID TINYINT;
