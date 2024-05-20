@@ -40,7 +40,7 @@ ORDER BY DateID;
 
 INSERT INTO DIM_TIME (TimeID, TimeOfDay, [Hour])
 SELECT DISTINCT
-    RideDateTimeToInt % 1000000 AS TimeID,
+    (RideDateTimeToInt / 10000) % 100 AS TimeID,
 	CASE 
 		WHEN (RideDateTimeToInt / 10000) % 100 >= 4 AND (RideDateTimeToInt / 10000) % 100 < 8 THEN 'morning'
 		WHEN (RideDateTimeToInt / 10000) % 100 >= 8 AND (RideDateTimeToInt / 10000) % 100 < 12  THEN 'forenoon'
@@ -94,7 +94,7 @@ SELECT DISTINCT
 	TransportType AS TransportType,
 	TransportCompany AS TransportCompany,
 	ProductId AS TransportProductID,
-        ProductName AS TransportProductName
+    ProductName AS TransportProductName
 FROM BulkCSVImported;
 
 -- FACT
@@ -153,9 +153,9 @@ SELECT
 	DistanceMiles,
 	SurgeMultiplier,
 	RideDateTimeToInt / 1000000 AS FK_DateID,
-	RideDateTimeToInt % 1000000 AS FK_TimeID,
+	(RideDateTimeToInt / 10000) % 100 AS FK_TimeID,
 	FK_LocationID_Source,
 	FK_LocationID_Destination,
 	FK_WeatherID, 
 	FK_TransportID
-FROM BulkCSVImported;
+FROM BulkCSVImported; 
