@@ -17,9 +17,10 @@ center_point_location = {
 
 
 def get_point_by_name(name: str) -> LocationPoint:
-    return center_point_location.get(
-        name, exec("raise Exception(f'Point with name: {name} doesn't exist') ")
-    )
+    if name not in center_point_location:
+        raise Exception(f"Point with name: {name} doesn't exist")
+    
+    return center_point_location[name]
 
 
 def calculate_centroid() -> LocationPoint:
@@ -28,8 +29,8 @@ def calculate_centroid() -> LocationPoint:
     count = len(center_point_location)
 
     for location in center_point_location.values():
-        total_lat += location.latitude
-        total_lon += location.longitude
+        total_lat += location.get_latitude()
+        total_lon += location.get_longitude()
 
     # Calculate the average latitude and longitude
     mean_latitude = total_lat / count

@@ -15,20 +15,12 @@ load_dotenv()
 db_driver = os.getenv("DB_DRIVER")
 db_server = os.getenv("DB_SERVER")
 db_name = os.getenv("DB_NAME")
-db_user = os.getenv("DB_USER")
-db_pass = os.getenv("DB_PASS")
 
-conn_str = f"DRIVER={db_driver};SERVER={db_server};DATABASE={db_name};UID={db_user};PWD={db_pass}"
+conn_str = f"DRIVER={db_driver};SERVER={db_server};DATABASE={db_name};Trusted_Connection=yes"
 conn = pyodbc.connect(conn_str)
 cursor = conn.cursor()
 
-
-def get_fact_ride_data(
-    file_name: str,
-    get_location: Callable[[Ride], LocationPoint],
-    filter_fn: Callable[[Ride], bool],
-) -> None:
-    query = """
+query = """
         SELECT 
             DIM_TRANSPORT.TransportType     AS RideType,
             DIM_TRANSPORT.TransportCompany  AS RideCompany,
@@ -42,7 +34,16 @@ def get_fact_ride_data(
         JOIN DIM_TRANSPORT      ON FK_TransportID               = DIM_TRANSPORT.TransportID;
         """
 
-    cursor.execute(query)
+cursor.execute(query)
+
+data = cursor.fetchall()
+
+
+def get_fact_ride_data(
+    file_name: str,
+    get_location: Callable[[Ride], LocationPoint],
+    filter_fn: Callable[[Ride], bool],
+) -> None:
 
     locations = [
         Ride(
@@ -52,7 +53,7 @@ def get_fact_ride_data(
             start=get_point_by_name(row[3]),
             destination=get_point_by_name(row[4]),
         )
-        for row in cursor.fetchall()
+        for row in data
     ]
 
     locations = filter(filter_fn, locations)
@@ -60,7 +61,7 @@ def get_fact_ride_data(
     centroid = calculate_centroid()
 
     map_of_boston = folium.Map(
-        location=[centroid.get_latitude(), centroid.get_longitude()], zoom_start=4
+        location=[centroid.get_latitude(), centroid.get_longitude()], zoom_start=15
     )
 
     HeatMap(
@@ -68,6 +69,6 @@ def get_fact_ride_data(
             (get_location(loc).get_latitude(), get_location(loc).get_longitude())
             for loc in locations
         ]
-    ).add_to(map)
+    ).add_to(map_of_boston)
 
     map_of_boston.save(file_name + ".html")

@@ -33,26 +33,26 @@ def get_all() -> None:
     for time_of_day in times_of_day:
         for ride_type in ride_types:
             get_fact_ride_data(
-                f"{ride_type.lower()}_start_{time_of_day.lower()}",
+                f"./results/{ride_type.lower()}_start_{time_of_day.lower()}",
                 get_start,
                 lambda ride: get_ride_types(ride, ride_type, time_of_day),
             )
 
             get_fact_ride_data(
-                f"{ride_type.lower()}_destination_{time_of_day.lower()}",
+                f"./results/{ride_type.lower()}_destination_{time_of_day.lower()}",
                 get_destination,
                 lambda ride: get_ride_types(ride, ride_type, time_of_day),
             )
 
         for ride_company in ride_companies:
             get_fact_ride_data(
-                f"{ride_company.lower()}_start_{time_of_day.lower()}",
+                f"./results/{ride_company.lower()}_start_{time_of_day.lower()}",
                 get_start,
                 lambda ride: get_company(ride, ride_company, time_of_day),
             )
 
             get_fact_ride_data(
-                f"{ride_company.lower()}_destination_{time_of_day.lower()}",
+                f"./results/{ride_company.lower()}_destination_{time_of_day.lower()}",
                 get_destination,
                 lambda ride: get_ride_types(ride, ride_company, time_of_day),
             )
